@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: example
+    version: ${version:1.0}
+  cloud:
+    consul:
+      host: ifp3-dev1
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        healthCheckPath: ${server.servlet.context-path}/actuator/health
+        healthCheckInterval: 15s
+        tags: version=${spring.application.version}, management.context-path=${server.servlet.context-path}/actuator, health.path=/health
+      config:
+        enabled: false
+
+server:
+  port: 8081
+  servlet:
+    context-path: /${spring.application.name}
+
