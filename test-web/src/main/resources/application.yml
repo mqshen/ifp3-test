@@ -4,7 +4,7 @@ spring:
     version: ${version:1.0}
   cloud:
     consul:
-      host: ifp3-dev1
+      host: 101.251.195.188
       port: 8500
       discovery:
         instanceId: ${spring.application.name}:${random.value}
